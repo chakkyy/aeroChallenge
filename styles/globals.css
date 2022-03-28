@@ -1,16 +1,54 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;900&display=swap");
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+  --grey-100: #f5f9ff;
+  --grey-200: #e6edf7;
+  --grey-300: #dae4f2;
+  --grey-500: #8fa3bf;
+  --grey-600: #7c899c;
+  --grey-900: #252f3d;
+  --blue-1: #176feb;
+  --brand-gradient: linear-gradient(90deg, #176feb, #ff80ff);
+  --brand-gradient-hover: linear-gradient(90deg, #1667d9, #f279f2);
+  --brand-light: #e5f0ff;
+  --brand-light-2: #cce1ff;
+  --green: #29cc74;
+  --green-light: #ccffe3;
+  --red: #e07f4f;
+  --red-light: #ffdfd9;
+  --illustration-bg: linear-gradient(90deg, #8bb6f5, #febfff);
+  --section-bg: linear-gradient(90deg, #176feb, #ff80ff);
+  --aerolab: linear-gradient(90deg, #ff8800, #ff6600);
+  --ff: "Montserrat", "Tahoma", sans-serif;
+  --ff-heading-100: 32px;
+  --ff-heading-200: 48px;
+  --ff-heading-300: 200px;
+  --ff-body-100: 14px;
+  --ff-body-200: 18px;
+  --max-width: 1464px;
+}
+
+html,
+body {
+  font-family: var(--ff);
+  background-color: var(--white);
+  scroll-behavior: smooth;
+}
+
+.temp__fix {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  border: 0;
 }

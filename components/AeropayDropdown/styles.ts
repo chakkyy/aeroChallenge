@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledAeropay = styled.button`
   border: 1px solid var(--grey-300);
@@ -42,9 +42,8 @@ export const StyledAeropay = styled.button`
 
   .chevron {
     transition: transform 300ms;
-    
   }
-`;
+`
 export const StyledContainer = styled.div`
   position: relative;
-`;
+`

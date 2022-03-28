@@ -4,9 +4,9 @@ import UserProvider from '../context'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-  <UserProvider>
-  <Component {...pageProps} />
-  </UserProvider>
+    <UserProvider>
+      <Component {...pageProps} />
+    </UserProvider>
   )
 }
 

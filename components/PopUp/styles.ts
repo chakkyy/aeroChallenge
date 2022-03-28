@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components'
 
 const appear = keyframes`
     0%{
@@ -9,7 +9,7 @@ const appear = keyframes`
         opacity: 1;
         transform: translateY(0);
     }
-`;
+`
 
 export const StyledPopUp = styled.div`
   background-color: var(--white);
@@ -131,4 +131,4 @@ export const StyledPopUp = styled.div`
       margin-left: 8px;
     }
   }
-`;
+`

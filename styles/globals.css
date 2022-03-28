@@ -52,3 +52,7 @@ body {
   overflow: hidden;
   border: 0;
 }
+
+.wave__patterns {
+  background-image: url("/assets/illustrations/single-wave-pattern.svg");
+}

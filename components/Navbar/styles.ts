@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const StyledNavBar = styled.nav`
+export const StyledNavBar = styled(motion.nav)`
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 40px 0;

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const StyledArticle = styled.article`
+export const StyledArticle = styled(motion.article)`
   width: min(40vw, 530px);
   border-radius: 32px;
   border: 1px solid var(--grey-300);

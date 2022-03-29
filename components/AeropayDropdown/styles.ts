@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const StyledAeropay = styled.button`
   border: 1px solid var(--grey-300);
@@ -44,6 +45,6 @@ export const StyledAeropay = styled.button`
     transition: transform 300ms;
   }
 `
-export const StyledContainer = styled.div`
+export const StyledContainer = styled(motion.div)`
   position: relative;
 `

@@ -8,7 +8,6 @@ export const StyledPagination = styled.div`
   border-radius: 16px;
   border: 1px solid var(--grey-300);
   margin-left: auto;
-  margin-top: 64px;
 
   p {
     margin: 0 24px;

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const StyledHero = styled.section`
   display: flex;
@@ -6,31 +7,6 @@ export const StyledHero = styled.section`
   margin: 0 auto;
   justify-content: space-between;
   overflow: hidden;
-
-  h1 {
-    line-height: 0.8;
-    margin-top: 3.5em;
-  }
-  .text__1 {
-    font-weight: 600;
-    font-size: var(--ff-body-200);
-    color: var(--grey-600);
-    letter-spacing: 3px;
-    display: block;
-    margin-bottom: 15px;
-  }
-  .text__2 {
-    background-image: var(--brand-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    display: block;
-    font-size: clamp(120px, 14vw, var(--ff-heading-300));
-    font-weight: 900;
-    &.zone {
-      color: var(--grey-900);
-    }
-  }
 
   p {
     font-weight: 600;
@@ -128,6 +104,32 @@ export const StyledHero = styled.section`
     .hero__img {
       background-size: cover;
       margin-top: 0;
+    }
+  }
+`
+
+export const Title = styled(motion.h1)`
+  line-height: 0.8;
+  margin-top: 3.5em;
+
+  .text__1 {
+    font-weight: 600;
+    font-size: var(--ff-body-200);
+    color: var(--grey-600);
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 15px;
+  }
+  .text__2 {
+    background-image: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: block;
+    font-size: clamp(120px, 14vw, var(--ff-heading-300));
+    font-weight: 900;
+    &.zone {
+      color: var(--grey-900);
     }
   }
 `

@@ -110,6 +110,7 @@ export const StyledCatalog = styled.section`
     justify-content: center;
     gap: 80px 24px;
     margin-top: 67px;
+    margin-bottom: 64px;
   }
 
   footer {

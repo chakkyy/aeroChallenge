@@ -11,7 +11,11 @@ const AeropayDropdown = () => {
   const handleClick = () => setIsOpen(!isOpen)
 
   return (
-    <StyledContainer>
+    <StyledContainer
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ ease: 'easeOut', duration: 2 }}
+    >
       <StyledAeropay
         onClick={handleClick}
         className={isOpen ? 'isOpen' : undefined}

@@ -31,10 +31,16 @@ const cardArr = [
 
 const Walkthrough = () => {
   return (
-    <StyledSection>
+    <StyledSection
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 2 }}
+      viewport={{ once: true }}
+    >
       <div className='container'>
-        {cardArr.map(c => (
+        {cardArr.map((c, index) => (
           <WalkthroughCard
+            index={index}
             bgImg={c.bgImg}
             description={c.description}
             title={c.title}

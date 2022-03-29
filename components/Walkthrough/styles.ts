@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const StyledSection = styled.section`
+export const StyledSection = styled(motion.section)`
   background-image: var(--illustration-bg);
   height: 528px;
   margin-top: 150px;

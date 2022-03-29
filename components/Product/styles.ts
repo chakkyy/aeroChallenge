@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const StyledProduct = styled.article`
+export const StyledProduct = styled(motion.article)`
   width: 348px;
   height: 506px;
   font-size: 18px;
@@ -40,7 +41,7 @@ export const StyledProduct = styled.article`
   @media (max-width: 1024px) {
     width: 311px;
   }
-`;
+`
 
 export const Btn = styled.button`
   display: flex;
@@ -82,4 +83,4 @@ export const Btn = styled.button`
     color: var(--white);
     pointer-events: none;
   }
-`;
+`

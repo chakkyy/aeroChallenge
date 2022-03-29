@@ -5,6 +5,7 @@ import Pagination from '../Pagination'
 import Product from '../Product'
 import { StyledCatalog, MobilePagination } from './styles'
 import Spinner from '../Spinner'
+import { motion } from 'framer-motion'
 
 export interface Product {
   _id: string
@@ -137,11 +138,22 @@ export default function Catalog() {
   return (
     <StyledCatalog id='catalog'>
       <NotificationsContainer />
-      <h2>
+      <motion.h2
+        initial={{ x: -100 }}
+        whileInView={{ x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: 'easeInOut' }}
+      >
         <span>TECH</span> PRODUCTS
-      </h2>
+      </motion.h2>
       <div className='container'>
-        <div className='flex__container'>
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2, type: 'spring', bounce: 0.25, delay: 1 }}
+          className='flex__container'
+        >
           <div className='filter__container'>
             <label
               className={`label__filter ${
@@ -202,7 +214,7 @@ export default function Catalog() {
               <span>Highest Price</span>
             </label>
           </div>
-        </div>
+        </motion.div>
         {amountPerPage !== 8 && (
           <Pagination
             productAmount={filtered ? filteredProducts.length : products.length}
@@ -213,8 +225,8 @@ export default function Catalog() {
         )}
       </div>
       <div className='products'>
-        {filteredProducts.map(p => (
-          <Product loading={loading} product={p} key={p._id} />
+        {filteredProducts.map((p, index) => (
+          <Product index={index} loading={loading} product={p} key={p._id} />
         ))}
       </div>
       {loading && (

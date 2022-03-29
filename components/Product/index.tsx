@@ -9,10 +9,11 @@ import Spinner from '../Spinner'
 interface Props {
   product: IProduct
   loading: boolean
+  index: number
 }
 
 export default function Product(props: Props) {
-  const { product, loading } = props
+  const { product, loading, index } = props
   const { category, name, img, cost } = product
 
   const { user, setUser } = useContext(Context)!
@@ -46,7 +47,12 @@ export default function Product(props: Props) {
   }
 
   return (
-    <StyledProduct>
+    <StyledProduct
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: (index + 1) * 0.05 }}
+      viewport={{ once: true }}
+    >
       <div className='product__top'>
         <div className='product__img'>
           {loading ? (

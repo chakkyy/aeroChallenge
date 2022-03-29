@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const StyledNotification = styled.div`
+export const StyledNotification = styled(motion.div)`
   display: flex;
   padding: 24px;
   align-items: center;
@@ -51,4 +52,4 @@ export const StyledNotification = styled.div`
   @media (max-width: 375px) {
     align-items: flex-start;
   }
-`;
+`

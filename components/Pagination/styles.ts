@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const StyledPagination = styled.div`
+export const StyledPagination = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;

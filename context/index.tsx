@@ -1,4 +1,5 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react'
+import { Product } from '../components/Catalog'
 
 export const Context = createContext<Value | null>(null)
 
@@ -8,6 +9,7 @@ interface Props {
 
 interface User {
   points: number
+  products: Product[]
 }
 
 interface Value {
@@ -16,7 +18,10 @@ interface Value {
 }
 
 const UserProvider = ({ children }: Props) => {
-  const [user, setUser] = useState<User>({ points: 0 })
+  const [user, setUser] = useState<User>({
+    points: 0,
+    products: []
+  })
 
   return (
     <Context.Provider value={{ user, setUser }}>{children}</Context.Provider>

@@ -8,10 +8,11 @@ export const StyledPagination = styled.div`
   border-radius: 16px;
   border: 1px solid var(--grey-300);
   margin-left: auto;
+  margin-top: 64px;
 
   p {
     margin: 0 24px;
-    color: var(--grey-600);
+    color: var(--grey-300);
 
     span {
       background-image: var(--brand-gradient);

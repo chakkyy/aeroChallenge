@@ -4,8 +4,15 @@ import Image from 'next/image'
 import { Product as IProduct } from '../Catalog'
 import { Context } from '../../context'
 import Button from './Button'
+import Spinner from '../Spinner'
 
-export default function Product({ product }: { product: IProduct }) {
+interface Props {
+  product: IProduct
+  loading: boolean
+}
+
+export default function Product(props: Props) {
+  const { product, loading } = props
   const { category, name, img, cost } = product
 
   const { user, setUser } = useContext(Context)!
@@ -42,16 +49,21 @@ export default function Product({ product }: { product: IProduct }) {
     <StyledProduct>
       <div className='product__top'>
         <div className='product__img'>
-          {<Image src={img.hdUrl} alt={name} width='280' height='204' /> || (
-            <Image
-              className='img'
-              src='/assets/icons/aeropay-5.svg'
-              width='78'
-              height='72'
-              alt=''
-            />
+          {loading ? (
+            <Spinner />
+          ) : (
+            <Image src={img.hdUrl} alt={name} width='280' height='204' /> || (
+              <Image
+                className='img'
+                src='/assets/icons/aeropay-5.svg'
+                width='78'
+                height='72'
+                alt=''
+              />
+            )
           )}
         </div>
+
         <div className='product__info'>
           <p className='product__name'>{name}</p>
           <p className='product__category'>{category}</p>

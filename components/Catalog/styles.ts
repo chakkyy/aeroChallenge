@@ -5,6 +5,12 @@ export const StyledCatalog = styled.section`
   width: calc(100vw - 40px);
   margin: 200px auto 0;
 
+  .spinner__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+  }
+
   h2 {
     font-size: var(--ff-heading-200);
     font-weight: 900;
@@ -107,7 +113,6 @@ export const StyledCatalog = styled.section`
   }
 
   footer {
-    margin-top: 64px;
     text-align: center;
     position: relative;
     padding: 20px 0;
@@ -212,7 +217,9 @@ export const MobilePagination = styled.button`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: transform 300ms;
-  color: var(--grey-900);
+  color: #176feb;
+  margin-top: 64px;
+  font-weight: 600;
 
   span {
     margin: 0 auto;

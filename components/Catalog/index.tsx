@@ -4,6 +4,7 @@ import NotificationsContainer from '../NotificationsContainer'
 import Pagination from '../Pagination'
 import Product from '../Product'
 import { StyledCatalog, MobilePagination } from './styles'
+import Spinner from '../Spinner'
 
 export interface Product {
   _id: string
@@ -11,6 +12,7 @@ export interface Product {
   cost: number
   quantity: number
   category: string
+  loading: boolean
   img: {
     url: string
     hdUrl: string
@@ -27,6 +29,7 @@ export default function Catalog() {
   const [mostRecentProduct, setMostRecentProduct] = useState<Product[]>([])
   const [amountPerPage, setAmountPerPage] = useState(16)
   const [filtered, setFiltered] = useState(false)
+  const [loading, setLoading] = useState(true)
   const categorias = Array.from(new Set(products.map(p => p.category)))
 
   const resizeFunction = () => {
@@ -51,21 +54,25 @@ export default function Catalog() {
   }, [])
 
   useEffect(() => {
-    fetch('https://coding-challenge-api.aerolab.co/products', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxZTAyNGRlNjZjMTAwMjFmMTVkNzkiLCJpYXQiOjE2NDg0ODQzODh9.cVu7GHdtSVR2yD935rDw1uhcNrywsq0sbI3hG-Ql-4E'
-      }
-    })
-      .then(response => response.json())
-      .then(response => {
-        setMostRecentProduct(response)
-        setProducts(response)
-        resizeFunction()
-        setFilteredProducts(response.slice(0, amountPerPage))
+    setLoading(true)
+    setTimeout(() => {
+      fetch('https://coding-challenge-api.aerolab.co/products', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxZTAyNGRlNjZjMTAwMjFmMTVkNzkiLCJpYXQiOjE2NDg0ODQzODh9.cVu7GHdtSVR2yD935rDw1uhcNrywsq0sbI3hG-Ql-4E'
+        }
       })
+        .then(response => response.json())
+        .then(response => {
+          setLoading(false)
+          setMostRecentProduct(response)
+          setProducts(response)
+          resizeFunction()
+          setFilteredProducts(response.slice(0, amountPerPage))
+        })
+    }, 1000)
   }, []) //eslint-disable-line react-hooks/exhaustive-deps
 
   const displayProducts = () => {
@@ -119,8 +126,12 @@ export default function Catalog() {
   }
 
   const handleMobilePaginate = () => {
-    const mobileCurrentProducts = filteredProducts.length + amountPerPage
-    setFilteredProducts(products.slice(0, mobileCurrentProducts))
+    setLoading(true)
+    setTimeout(() => {
+      const mobileCurrentProducts = filteredProducts.length + amountPerPage
+      setFilteredProducts(products.slice(0, mobileCurrentProducts))
+      setLoading(false)
+    }, 1000)
   }
 
   return (
@@ -203,17 +214,15 @@ export default function Catalog() {
       </div>
       <div className='products'>
         {filteredProducts.map(p => (
-          <Product product={p} key={p._id} />
+          <Product loading={loading} product={p} key={p._id} />
         ))}
       </div>
-      <footer>
-        <p>
-          <span className='span'>
-            {filteredProducts.length} of {products.length}
-          </span>
-          products
-        </p>
-      </footer>
+      {loading && (
+        <div className='spinner__container'>
+          <Spinner />
+        </div>
+      )}
+
       {amountPerPage > 8 ? (
         <Pagination
           productAmount={filtered ? filteredProducts.length : products.length}
@@ -235,6 +244,14 @@ export default function Catalog() {
           <span>Show More</span>
         </MobilePagination>
       )}
+      <footer>
+        <p>
+          <span className='span'>
+            {filteredProducts.length} of {products.length}
+          </span>
+          products
+        </p>
+      </footer>
     </StyledCatalog>
   )
 }

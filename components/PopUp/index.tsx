@@ -20,6 +20,15 @@ const PopUp = ({ handleClick }: Props) => {
       ...value.user,
       points: value.user.points + addedPoints
     })
+    const pointsInStorage = JSON.parse(localStorage.getItem('points')!)
+    if (pointsInStorage === null) {
+      localStorage.setItem('points', JSON.stringify(addedPoints))
+    } else {
+      localStorage.setItem(
+        'points',
+        JSON.stringify(pointsInStorage + addedPoints)
+      )
+    }
   }
 
   return (

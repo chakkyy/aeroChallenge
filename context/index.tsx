@@ -1,4 +1,10 @@
-import { createContext, useState, Dispatch, SetStateAction } from 'react'
+import {
+  createContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+  useEffect
+} from 'react'
 import { Product } from '../components/Catalog'
 
 export const Context = createContext<Value | null>(null)
@@ -22,6 +28,16 @@ const UserProvider = ({ children }: Props) => {
     points: 0,
     products: []
   })
+
+  useEffect(() => {
+    const pointsInStorage = localStorage.getItem('points')
+    if (pointsInStorage) {
+      setUser({
+        ...user,
+        points: parseInt(pointsInStorage)
+      })
+    }
+  }, []) // eslint-disable-line
 
   return (
     <Context.Provider value={{ user, setUser }}>{children}</Context.Provider>

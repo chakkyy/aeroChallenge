@@ -31,9 +31,9 @@ const Hero = () => {
         </motion.p>
         <motion.a
           href='#catalog'
-          initial={{ opacity: 0, y: -70 }}
+          initial={{ opacity: 0, x: 70 }}
           animate={{
-            y: 0,
+            x: 0,
             opacity: 1
           }}
           transition={{ ease: 'linear', duration: 1.5, delay: 1 }}
@@ -49,9 +49,9 @@ const Hero = () => {
         </motion.a>
       </div>
       <motion.div
-        initial={{ scale: 0.7 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 2 }}
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 2, delay: 1 }}
         className='hero__img'
         aria-hidden='true'
       />

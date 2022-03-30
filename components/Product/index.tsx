@@ -50,7 +50,7 @@ export default function Product(props: Props) {
     <StyledProduct
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, delay: (index + 1) * 0.05 }}
+      transition={{ duration: 1, delay: (index + 1) * 0.02 }}
       viewport={{ once: true }}
     >
       <div className='product__top'>

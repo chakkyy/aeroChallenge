@@ -34,7 +34,7 @@ export default function Catalog() {
   const categorias = Array.from(new Set(products.map(p => p.category)))
 
   const resizeFunction = () => {
-    if (window.innerWidth <= 375) {
+    if (window.innerWidth <= 415) {
       setAmountPerPage(8)
     } else if (window.innerWidth <= 1024) {
       setAmountPerPage(12)

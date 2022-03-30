@@ -26,10 +26,10 @@ export default function Pagination({
 
   return (
     <StyledPagination
-      initial={{ x: 100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
+      initial={{ y: -100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 2, type: 'spring', bounce: 0.25, delay: 1 }}
+      transition={{ duration: 2, delay: 1 }}
     >
       <button
         onClick={previousPage}

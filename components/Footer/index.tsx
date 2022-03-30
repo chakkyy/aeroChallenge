@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <Link href='https://github.com/chakkyy/aeroChallenge' passHref>
-        <a className='repo'>
+        <a className='repo' target='_blank'>
           <Image src={GitHub} alt='github-logo' />
           <span>View this repository</span>
         </a>

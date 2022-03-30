@@ -33,9 +33,8 @@ const Walkthrough = () => {
   return (
     <StyledSection
       initial={{ y: 100, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 2 }}
-      viewport={{ once: true }}
     >
       <div className='container'>
         {cardArr.map((c, index) => (
